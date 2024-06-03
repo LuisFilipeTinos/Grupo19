@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scripts/Scripts/CenaInicial.unity
     guid: fdc34f31c3c6bc84cb1084c624210a38
+  - enabled: 1
+    path: Assets/Scripts/Scripts/CenaCredito.unity
+    guid: 5f345cce2aacc5f4ebe9de14809cf800
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
