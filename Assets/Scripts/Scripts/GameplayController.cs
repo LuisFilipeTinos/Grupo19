@@ -139,7 +139,7 @@ public class GameplayController : MonoBehaviour
             {
                 //Increase artifact points:
                 var actualPoints = artifactController.artifactPoints.GetPoints();
-                artifactController.artifactPoints.SetPoints(actualPoints++);
+                artifactController.artifactPoints.SetPoints(actualPoints + 1);
 
                 //Alteração visual do elemento gráfico responsável por essa alteração;
                 artifactPointsText.text = artifactController.artifactPoints.GetPoints().ToString();
