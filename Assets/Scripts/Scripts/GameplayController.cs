@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -31,6 +32,11 @@ public class GameplayController : MonoBehaviour
     private List<int> _availableIDs; // Lista de IDs disponíveis para as cartas
     [field: SerializeField] private List<CardController> FlippedCards { get; set; } // Lista das cartas viradas
     private List<CardController> MatchedCards { get; set; } // Lista das cartas combinadas
+
+    [Space]
+    [Header("Artifact Elements")]
+    [SerializeField] ArtifactPointsController artifactController;
+    [SerializeField] TextMeshProUGUI artifactPointsText;
 
     private void Start()
     {
@@ -124,6 +130,20 @@ public class GameplayController : MonoBehaviour
 
             FlippedCards[0].Match();
             FlippedCards[1].Match();
+
+            //Lógica para a pontuação e armazenamento provisório em um objeto non-destructable:
+            var isFirstCardArtifact = FlippedCards[0].CheckForArtifacts();
+            var isSecondCardArtifact = FlippedCards[1].CheckForArtifacts();
+
+            if (isFirstCardArtifact && isSecondCardArtifact)
+            {
+                //Increase artifact points:
+                var actualPoints = artifactController.artifactPoints.GetPoints();
+                artifactController.artifactPoints.SetPoints(actualPoints++);
+
+                //Alteração visual do elemento gráfico responsável por essa alteração;
+                artifactPointsText.text = artifactController.artifactPoints.GetPoints().ToString();
+            }
 
             MatchedCards.Add(FlippedCards[0]);
             MatchedCards.Add(FlippedCards[1]);

@@ -58,4 +58,12 @@ public class CardController : MonoBehaviour
         Debug.Log("Formou par!");
         Destroy(this.gameObject, 1f);
     }
+
+    public bool CheckForArtifacts()
+    {
+        if (this.gameObject.CompareTag("Artifact"))
+            return true;
+        else
+            return false;
+    }
 }
