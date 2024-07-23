@@ -137,7 +137,7 @@ public class GameplayController : MonoBehaviour
 
             if (isFirstCardArtifact && isSecondCardArtifact)
             {
-                //Increase artifact points:
+                //Aumento dos pontos:
                 var actualPoints = artifactController.artifactPoints.GetPoints();
                 artifactController.artifactPoints.SetPoints(actualPoints + 1);
 
